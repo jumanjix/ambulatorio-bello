@@ -65,18 +65,36 @@
         <h3 class="mb-5">I nostri servizi</h3>
         <div class="container">
             <div class="row">
-                <div role="button"  routerLink="visite-specialistiche" class="servizi col-md-4">
-                    <fa-icon class="fa-7x text-info" [icon]="faDoc"></fa-icon><br>
+                <div class="servizi col-md-4" role="button" routerLink="visite-specialistiche">
+                    <fa-stack class="fa-5x mb-2">
+                        <fa-icon class="text-info" [icon]="faCircle" stackItemSize="2x"></fa-icon>
+                        <fa-icon class="text-info" [icon]="faDoc" stackItemSize="1x"></fa-icon>
+                    </fa-stack>
+                        
+                   <br>
+                   
                     <button class="btn btn-info text-white" >Visite Specialistiche</button>
     
                 </div>
-                <div class="col-md-4">
-                    <fa-icon class="fa-7x text-info" [icon]="faLab"></fa-icon><br>
-                    <button class="btn btn-info text-white" routerLink="laboratorio-analisi">Laboratorio Analisi</button>
+                <div class="servizi col-md-4" role="button" routerLink="laboratorio-analisi">
+                    <fa-stack class="fa-5x mb-2">
+                        <fa-icon class="text-info" [icon]="faCircle" stackItemSize="2x"></fa-icon>
+                        <fa-icon class="text-info" [icon]="faLab" stackItemSize="1x"></fa-icon>
+                    </fa-stack>
+                    <br>
+
+
+                    <button class="btn btn-info text-white">Laboratorio Analisi</button>
                 </div>
-                <div class="col-md-4">
-                    <fa-icon class="fa-7x text-info" [icon]="faMedLav"></fa-icon><br>
-                    <button class="btn btn-info text-white" routerLink="medicina-del-lavoro">Medicina del Lavoro</button>
+                <div class="servizi col-md-4" role="button" routerLink="medicina-del-lavoro"> 
+                    <fa-stack class="fa-5x mb-2">
+                        <fa-icon class="text-info" [icon]="faCircle" stackItemSize="2x"></fa-icon>
+                        <fa-icon class="text-info" [icon]="faMedLav" stackItemSize="1x"></fa-icon>
+                    </fa-stack>
+                    <br>
+
+                    
+                    <button class="btn btn-info text-white">Medicina del Lavoro</button>
                 </div>
             </div>
         </div>

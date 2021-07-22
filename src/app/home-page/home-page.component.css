@@ -1,18 +1,12 @@
+/* altezza fissa per le immagini nel carousel */
 .carousel-item img {
     max-height: 500px;
 }
 
-.servizi {
-    border: 1px solid black;
-}
-.servizi .fa-7x, .servizi button {
+/* zoom-in su bottoni e icone dei servizi al passaggio del mouse */
+.servizi  {
     transition: transform .2s;
 }
- .servizi:hover button{
+ .servizi:hover {
     transform: scale(1.2);
-}
-
-.servizi:hover .fa-7x {
-    transform: scale(1.5);
-    font-size:130px;
 }
