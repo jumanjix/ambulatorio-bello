@@ -1,0 +1,18 @@
+.carousel-item img {
+    max-height: 500px;
+}
+
+.servizi {
+    border: 1px solid black;
+}
+.servizi .fa-7x, .servizi button {
+    transition: transform .2s;
+}
+ .servizi:hover button{
+    transform: scale(1.2);
+}
+
+.servizi:hover .fa-7x {
+    transform: scale(1.5);
+    font-size:130px;
+}

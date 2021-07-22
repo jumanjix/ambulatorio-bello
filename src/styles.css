@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+background: linear-gradient(180deg, rgba(13,202,240,0.3032213569021359) 0%, rgba(236,252,255,1) 75%);
+background-repeat: no-repeat;
+background-attachment: fixed;
+   }
+
+body .btn-info {
+   font-weight: bold;
+}
+
