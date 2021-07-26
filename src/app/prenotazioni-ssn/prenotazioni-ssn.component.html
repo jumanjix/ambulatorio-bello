@@ -6,80 +6,83 @@
     <p>Compila il seguente modulo se desideri prenotare una visita o un esame in convenzione con il Sistema Sanitario
         Nazionale. Sarai richiamato in tempi rapidi, con professionalità e competenza al tuo servizio, per concordare il
         giorno e l'orario della visita.</p>
-    <form class="row g-3">
+    <form class="row g-3" (ngSubmit)="inviaPrenotazione(formPrenotazione.value); formPrenotazione.reset()" #formPrenotazione="ngForm">
         <div class="col-md-6">
             <label for="inputNome" class="form-label">Nome *</label>
-            <input type="text" class="form-control" id="inputNome">
+            <input type="text" class="form-control" id="inputNome" name="nome" required [(ngModel)]="model.nome" #nome="ngModel">
+            <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger">il Nome è obbligatorio</div>
         </div>
         <div class="col-md-6">
             <label for="inputCognome" class="form-label">Cognome *</label>
-            <input type="text" class="form-control" id="inputCognome">
+            <input type="text" class="form-control" id="inputCognome" name="cognome" required [(ngModel)]="model.cognome" #cognome="ngModel">
+            <div [hidden]="cognome.valid || cognome.pristine" class="alert alert-danger">il Cognome è obbligatorio</div>
         </div>
         <div class="col-md-6">
             <label for="inputEmail" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="inputEmail">
+            <input type="email" class="form-control" id="inputEmail" name="email" [(ngModel)]="model.email">
         </div>
         <div class="col-md-6">
             <label for="inputTelefono" class="form-label">Telefono</label>
-            <input type="text" class="form-control" id="inputTelefono">
+            <input type="text" class="form-control" id="inputTelefono" name="tel" [(ngModel)]="model.tel">
         </div>
         <div class="col-md-6">
             <label for="inputIndirizzo" class="form-label">Indirizzo di residenza</label>
-            <input type="text" class="form-control" id="inputIndirizzo" placeholder="Via Roma, 123">
+            <input type="text" class="form-control" id="inputIndirizzo" placeholder="Via Roma, 123" name="indirizzo" [(ngModel)]="model.indirizzo">
         </div>
         <div class="col-md-2">
             <label for="inputCap" class="form-label">CAP</label>
-            <input type="text" class="form-control" id="inputCap">
+            <input type="text" class="form-control" id="inputCap" name="cap" [(ngModel)]="model.cap">
         </div>
         <div class="col-md-4">
             <label for="inputCitta" class="form-label">Città</label>
-            <input type="text" class="form-control" id="inputCitta">
+            <input type="text" class="form-control" id="inputCitta" name="citta" [(ngModel)]="model.citta">
         </div>
         <div class="col-md-6">
             <label for="inputCodiceFiscale" class="form-label">Codice Fiscale *</label>
-            <input type="text" class="form-control" id="inputCodiceFiscale">
-        </div>
-    
+            <input type="text" class="form-control" id="inputCodiceFiscale" name="codice_fiscale" required [(ngModel)]="model.codice_fiscale" #codice_fiscale="ngModel">
+            <div [hidden]="codice_fiscale.valid || codice_fiscale.pristine" class="alert alert-danger">il Codice Fiscale è obbligatorio</div>
+        </div>    
         <div class="col-md-6">
             <label for="inputTesseraSanitaria" class="form-label">Numero Tessera Sanitaria *</label>
-            <input type="text" class="form-control" id="inputTesseraSanitaria">
+            <input type="text" class="form-control" id="inputTesseraSanitaria" name="nro_tessera_sanitaria" required [(ngModel)]="model.nro_tessera_sanitaria" #nro_tessera_sanitaria="ngModel">
+            <div [hidden]="nro_tessera_sanitaria.valid || nro_tessera_sanitaria.pristine" class="alert alert-danger">il Numero di Tessera Sanitaria è obbligatorio</div>
         </div>
     
         <div class="col-md-6">
-            <label for="exampleFormControlTextarea1" class="form-label">Indicazioni Diagnosi Presunta</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            <label for="textDiagnosi" class="form-label">Indicazioni Diagnosi Presunta</label>
+            <textarea class="form-control" id="textDiagnosi" rows="3" name="messaggio" [(ngModel)]="model.messaggio"></textarea>
         </div>
     
         <div class="col-md-6">
-            <label for="formFile" class="form-label">Allega l'impegnativa del tuo medico curante</label>
-            <input class="form-control" type="file" id="formFile">
+            <!--
+            <label for="inputImpegnativa" class="form-label">Allega l'impegnativa del tuo medico curante</label>
+            <input class="form-control" type="file" id="inputImpegnativa">
             <br>
-            <label for="inputState" class="form-label">Orario in cui desideri essere contattato</label>
-            <select id="inputState" class="form-select">
-                <option selected>Scegli orario...</option>
-                <option>9:00 - 12:00</option>
-                <option>12:00 - 14:00</option>
-                <option>14:00 - 16:00</option>
-                <option>16:00 - 18:00</option>
+            -->
+            <label for="selectOrarioContatto" class="form-label">Orario in cui desideri essere contattato</label>
+            <select id="selectOrarioContatto" class="form-select" name="orario" [(ngModel)]="model.orario">
+                <option [value]="undefined" selected disabled>Scegli orario...</option>
+                <option *ngFor="let h of orari_contatto" [value]="h">{{h}}</option>
             </select>
+            <br>
         </div>
     
-        <div class="col-12">
+        <div class="col-6">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
+                <input class="form-check-input" type="checkbox" id="trattamentoDati">
+                <label class="form-check-label" for="trattamentoDati">
                     Autorizzo il trattamento dati Reg.to UE 2016/679 - GDPR LEGGE PRIVACY
                 </label>
             </div>
         </div>
     
-        <div class="col-12 text-end">
-            <p>I campi contrassegnati con un * sono obbligatori.</p>
+        <div class="col-6 text-end">
+            <p>I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
             <p>Inoltre, si prega di inserire almeno un recapito tra e-mail e telefono.</p>
         </div>
     
         <div class="col-12">
-            <button type="submit" class="btn btn-info">Invia</button>
-        </div>
+            <button type="submit" class="btn btn-info text-white float-end" [disabled]="!formPrenotazione.form.valid">Invia Prenotazione</button>
+        </div>        
     </form>
 </div>
