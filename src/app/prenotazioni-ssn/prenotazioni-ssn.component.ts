@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Prenotazione } from '../prenotazione';
+import { PrenotazioniService } from '../prenotazioni.service';
 
 @Component({
   selector: 'app-prenotazioni-ssn',
@@ -17,9 +18,9 @@ export class PrenotazioniSsnComponent implements OnInit {
     '16:00 - 18:00'
   ];
 
-  agenda : Prenotazione[] = []; // array che contiene tutte le prenotazioni inserite
+  agenda : Prenotazione[] = []; // TODO: eliminare! (array che contiene tutte le prenotazioni inserite)
 
-  constructor() { }
+  constructor( private APIService : PrenotazioniService ) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +29,11 @@ export class PrenotazioniSsnComponent implements OnInit {
   inviaPrenotazione( nuovaPrenotazione: Prenotazione ) : void {
     console.log(nuovaPrenotazione );
     
+    // chiama la POST del service
+    this.APIService.postPrenotazione(nuovaPrenotazione).subscribe((res) => {
+      console.log(res);      
+    });
+
     alert('Prenotazione inviata con successo!');
 
     this.agenda.push(nuovaPrenotazione); // inserimento nuova prenotazione nell'array 'agenda'
