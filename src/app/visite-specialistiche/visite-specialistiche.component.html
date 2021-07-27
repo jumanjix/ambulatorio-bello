@@ -1,8 +1,41 @@
 <div class="container mt-5">
-    <h1>Visite Specialistiche</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quae adipisci iusto consectetur repellat? Vel commodi tempore perspiciatis esse, corrupti maiores enim doloremque voluptas quos ab aperiam cupiditate dignissimos rerum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex reiciendis modi expedita molestias et nulla nesciunt! Dignissimos voluptatum mollitia alias! Suscipit harum quaerat magnam id rerum vero assumenda voluptatem rem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum assumenda qui in, accusantium perspiciatis facere obcaecati ipsum exercitationem eligendi quos enim quaerat ex iste voluptatum maiores temporibus eaque! Modi, aut?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, facere, animi quasi ut, porro magnam hic totam maxime velit beatae sequi possimus libero ullam. Earum nobis sed iste alias distinctio.
-    </p>
-    <img src="../../assets/visita.jpg" alt="" width="900px" height="400px"><br>
-    <button class="btn btn-info mt-3 text-white" routerLink="/prenotazioni">Prenota una visita</button>
+    <h2>Visite Specialistiche</h2>
+    <hr>
+
+    <div class="row">
+        <div class="col-12">
+            <p>Il Poliambulatorio AB è accreditato in fascia A dalla Regione Kamchatka e risponde quindi ai massimi requisiti previsti per il settore. </p>
+            <img src="../../assets/visite_spec.jpg" alt="visite specialistiche" width="100%" height="auto">
+
+
+            <p class="mt-5">
+                L’attività ambulatoriale prevede un’ampia gamma di visite specialistiche ed esami strumentali eseguiti da un team di Medici Specialisti 
+                scelti in base a criteri di professionalità ed esperienza.
+            </p>
+
+            <div>
+                <p class="mb-3">Le branche specialistiche sono le seguenti:</p>
+                
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let v of visite_specialistiche" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            {{v.nome}}
+                          </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <p style="white-space:pre-line;">{{v.descr}}</p>
+
+                        <mat-action-row>
+                            <button class="btn btn-info text-white mx-auto" routerLink="/prenotazioni">Prenota una visita</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+
+                </mat-accordion>
+            
+            </div>
+
+
+        </div>
+    </div>
+
 </div>
