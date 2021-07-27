@@ -4,3 +4,7 @@ mat-expansion-panel-header {
     word-spacing:3px;
     letter-spacing: 1px;
 }
+
+mat-expansion-panel-header:hover {
+    text-decoration: underline;
+}

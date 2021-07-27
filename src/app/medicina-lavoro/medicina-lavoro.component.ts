@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { MedLavInfo } from '../med-lav-info';
+import { MedLavService } from '../med-lav.service';
 @Component({
   selector: 'app-medicina-lavoro',
   templateUrl: './medicina-lavoro.component.html',
@@ -59,13 +60,20 @@ export class MedicinaLavoroComponent implements OnInit {
     'Energetico'
   ]
   
-  constructor() { }
+  constructor( private MLService : MedLavService) { }
 
   ngOnInit(): void {
   }
 
-  inviaRichiestaInfo(data : any) {
+  inviaRichiestaInfo( nuovaRichiesta : MedLavInfo ) {
+    console.log(nuovaRichiesta);
+    
+    // chiama la POST del service med-lav.service
+    this.MLService.postRichiestaMedLav(nuovaRichiesta).subscribe((res) => {
+      console.log(res);      
+    });
 
+    alert('Richiesta inviata con successo!');
   }
 
 }

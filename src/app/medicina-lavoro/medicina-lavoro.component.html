@@ -77,7 +77,7 @@
                 <div class="col-12 p-5">
                     <form class="row g-3" (ngSubmit)="inviaRichiestaInfo(formMedLav.value); formMedLav.reset()"
                         #formMedLav="ngForm">
-                        
+
                         <legend>Dati Azienda</legend>
                         <div class="col-6">
                             <label for="inputAzienda" class="form-label">Nome</label>
@@ -95,18 +95,64 @@
                             </select>
                         </div>
 
-                        <legend>Dati Resposabile</legend>
-                            <div class="col-6">
-                                <label for="inputNomeResponsabile" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="inputNomeResponsabile" name="nome_responsabile"
-                                    required [(ngModel)]="model.nome_responsabile" #nome_responsabile="ngModel">
+                        <legend class="mt-5">Dati Resposabile</legend>
+                        <div class="col-6">
+                            <label for="inputNomeResponsabile" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="inputNomeResponsabile" name="nome_responsabile"
+                                required [(ngModel)]="model.nome_responsabile" #nome_responsabile="ngModel">
+                            <div [hidden]="nome_responsabile.valid || nome_responsabile.pristine" class="alert alert-danger">
+                                il Nome del Resposabile è obbligatorio
                             </div>
-                            <div class="col-6">
-                                <label for="inputCognomeResponsabile" class="form-label">Cognome</label>
-                                <input type="text" class="form-control" id="inputCognomeResponsabile" name="cognome_responsabile"
-                                    required [(ngModel)]="model.cognome_responsabile" #cognome_responsabile="ngModel">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputCognomeResponsabile" class="form-label">Cognome</label>
+                            <input type="text" class="form-control" id="inputCognomeResponsabile"
+                                name="cognome_responsabile" required [(ngModel)]="model.cognome_responsabile"
+                                #cognome_responsabile="ngModel">
+                            <div [hidden]="cognome_responsabile.valid || cognome_responsabile.pristine" class="alert alert-danger">
+                                il Cognome del Resposabile è obbligatorio
                             </div>
-   
+                        </div>
+                        <div class="col-6">
+                            <label for="inputEmailResponsabile" class="form-label">E-mail</label>
+                            <input type="text" class="form-control" id="inputEmailResponsabile" name="email" required
+                                [(ngModel)]="model.email" #email="ngModel">
+                            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                                l'E-Mail del Resposabile è obbligatoria
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="inputTelResponsabile" class="form-label">Telefono</label>
+                            <input type="text" class="form-control" id="inputTelResponsabile" name="tel" required
+                                [(ngModel)]="model.tel" #tel="ngModel">
+                            <div [hidden]="tel.valid || tel.pristine" class="alert alert-danger">
+                                il Telefono del Resposabile è obbligatorio
+                            </div>
+                        </div>
+
+                        <div class="col-12 my-5">
+                            <legend>Scrivi la Richiesta</legend>
+                            <textarea class="form-control" id="textRichiestaInfo" rows="5" name="richiesta" required
+                                [(ngModel)]="model.richiesta" #richiesta="ngModel"></textarea>
+                            <div [hidden]="richiesta.valid || richiesta.pristine" class="alert alert-danger">
+                                Inserisci una Richiesta
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="trattamentoDati" required>
+                                <label class="form-check-label" for="trattamentoDati">
+                                    Autorizzo il trattamento dati Reg.to UE 2016/679 - GDPR LEGGE PRIVACY
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-info text-white float-end"
+                                [disabled]="!formMedLav.form.valid">Invia Prenotazione</button>
+                        </div>
+
                     </form>
                 </div>
             </div>
