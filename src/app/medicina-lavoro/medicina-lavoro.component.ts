@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { MedLavInfo } from '../med-lav-info';
 @Component({
   selector: 'app-medicina-lavoro',
   templateUrl: './medicina-lavoro.component.html',
@@ -7,6 +8,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 })
 export class MedicinaLavoroComponent implements OnInit {
 
+  // popola lista attività
   attivita_medLav : string[] = [
     'Sicurezza sul posto di lavoro',
     'Igiene industriale e ambientale',
@@ -17,6 +19,7 @@ export class MedicinaLavoroComponent implements OnInit {
     'Fornitura di dispositivi di protezione individuali e dotazioni di sicurezza aziendali'
   ];
 
+  // popola lista servizi
   servizi_medLav : {dt: string, dd: string}[] = [
     {
       dt: 'ASSUNZIONE INCARICO DI MEDICO COMPETENTE',
@@ -40,11 +43,29 @@ export class MedicinaLavoroComponent implements OnInit {
     }
   ];
 
+  // icona elenco servizi
   freccia = faArrowRight;
+
+  // modello richiesta info 
+  model: MedLavInfo = new MedLavInfo('', '', '', '', '', '');
+
+  settori_aziendali : string[] = [
+    'Industria Alimentare e Bevande',
+    'Tessile',
+    'Chimico',
+    'Elettronica',
+    'Autovelicoli',
+    'Informatica',
+    'Energetico'
+  ]
   
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  inviaRichiestaInfo(data : any) {
+
   }
 
 }

@@ -1,41 +1,57 @@
 <div class="container mt-5">
     <section class="my-5">
-        <h2>Medicina del Lavoro <small class="text-muted"> con Ambulatorio Bello</small></h2><hr>
+        <h2>Medicina del Lavoro <small class="text-muted"> con Ambulatorio Bello</small></h2>
+        <hr>
 
         <div class="row">
             <div class="col-6">
-                La medicina del lavoro si occupa di prevenzione e cura di malattie fisiche e psicologiche causate dalle attività lavorative. 
-                Per diagnosticarle, AB attua dei protocolli sanitari (esami strumentali e di laboratorio) che titolari e dipendenti devono 
-                seguire in base al mestiere che svolgono e ad una periodicità che cambia in rapporto alla professione e ai rischi ai quali sono esposti.
-     
+                La medicina del lavoro si occupa di prevenzione e cura di malattie fisiche e psicologiche causate dalle
+                attività lavorative.
+                Per diagnosticarle, AB attua dei protocolli sanitari (esami strumentali e di laboratorio) che titolari e
+                dipendenti devono
+                seguire in base al mestiere che svolgono e ad una periodicità che cambia in rapporto alla professione e
+                ai rischi ai quali sono esposti.
+
             </div>
             <div class="col-6">
-                    <img class="img-thumbnail mx-auto d-block" src="../../assets/home_ml.jpeg" alt="" width="auto" height="auto"><br>
+                <img class="img-thumbnail mx-auto d-block" src="../../assets/home_ml.jpeg" alt="" width="auto"
+                    height="auto"><br>
 
             </div>
         </div>
-    
-        <div>        
-            AB si occupa di Medicina del lavoro dal 2006, svolgendo la sua attività in Alessandria e provincia e occupandosi di: 
+
+        <div>
+            AB si occupa di Medicina del lavoro dal 2006, svolgendo la sua attività in Alessandria e provincia e
+            occupandosi di:
             <ul>
                 <li *ngFor="let a of attivita_medLav">{{a}}</li>
             </ul>
-        </div>   
+        </div>
     </section>
     <section class="mb-5">
         <h3>I vantaggi di scegliere AB Medicina del Lavoro</h3>
         <hr>
-        <p>AB è un interlocutore unico per le aziende torinesi, piemontesi e italiane per l’adempimento D. Lgs. n. 81/2008 razionale, efficace, completo per consulenza e prodotti.</p>
-        <p>Per garantire la velocità delle prestazioni sanitarie e l’affidabilità dei risultati, IRM si avvale di medici specialisti in Medicina del Lavoro e nelle diverse branche, impiega personale tecnico specializzato nella prevenzione e consulenti legali; inoltre effettua un’analisi tecnico economica gratuita delle aziende, recandosi in loco per valutare le opportunità di collaborazione. </p>
-        <p>IRM è in grado di porsi al servizio dei propri Clienti, effettuando gli accertamenti presso le proprie sedi o presso le Aziende stesse. In mancanza di infermeria presso l'Azienda, o a supporto di essa, IRM mette a disposizione la propria unità mobile per espletare gli accertamenti clinico-diagnostici. Il mezzo è in possesso di tutte le autorizzazioni di legge, è dotata di protezione alle radiazioni ed è attrezzata con cabina radiologica, sviluppatrice automatica radiologica, elettrocardiografo, audiometro in cabina silente, spirometro, ottotipo, visio test, attrezzatura per prelievi e lettino per le visite mediche. </p>
+        <p>AB è un interlocutore unico per le aziende torinesi, piemontesi e italiane per l’adempimento D. Lgs. n.
+            81/2008 razionale, efficace, completo per consulenza e prodotti.</p>
+        <p>Per garantire la velocità delle prestazioni sanitarie e l’affidabilità dei risultati, IRM si avvale di medici
+            specialisti in Medicina del Lavoro e nelle diverse branche, impiega personale tecnico specializzato nella
+            prevenzione e consulenti legali; inoltre effettua un’analisi tecnico economica gratuita delle aziende,
+            recandosi in loco per valutare le opportunità di collaborazione. </p>
+        <p>IRM è in grado di porsi al servizio dei propri Clienti, effettuando gli accertamenti presso le proprie sedi o
+            presso le Aziende stesse. In mancanza di infermeria presso l'Azienda, o a supporto di essa, IRM mette a
+            disposizione la propria unità mobile per espletare gli accertamenti clinico-diagnostici. Il mezzo è in
+            possesso di tutte le autorizzazioni di legge, è dotata di protezione alle radiazioni ed è attrezzata con
+            cabina radiologica, sviluppatrice automatica radiologica, elettrocardiografo, audiometro in cabina silente,
+            spirometro, ottotipo, visio test, attrezzatura per prelievi e lettino per le visite mediche. </p>
     </section>
     <section class="mb-5">
         <h3>Servizi erogabili</h3>
         <hr>
-        <p>La sorveglianza sanitaria, costruita ad hoc in base alle esigenze del cliente, si articola nei seguenti punti:</p>
+        <p>La sorveglianza sanitaria, costruita ad hoc in base alle esigenze del cliente, si articola nei seguenti
+            punti:</p>
         <dl>
             <ng-container *ngFor="let s of servizi_medLav">
-                <dt>                        
+                <dt>
                     <fa-icon class="text-info" [icon]="freccia"></fa-icon>
                     {{s.dt}}
                 </dt>
@@ -46,6 +62,56 @@
 
 
 
-    
-    <button class="btn btn-info mt-3 text-white" routerLink="/prenotazioni">Chiedi una consulenza</button>
+
+    <!--     <button class="btn btn-info mt-3 text-white" routerLink="/prenotazioni">Chiedi una consulenza</button>
+ -->
+
+    <mat-expansion-panel class="bg-light">
+        <mat-expansion-panel-header class="bg-info text-white">
+            <mat-panel-title>
+                Richiedi Informazioni
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 p-5">
+                    <form class="row g-3" (ngSubmit)="inviaRichiestaInfo(formMedLav.value); formMedLav.reset()"
+                        #formMedLav="ngForm">
+                        
+                        <legend>Dati Azienda</legend>
+                        <div class="col-6">
+                            <label for="inputAzienda" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="inputAzienda" name="nome_azienda" required
+                                [(ngModel)]="model.nome_azienda" #nome_azienda="ngModel">
+                            <div [hidden]="nome_azienda.valid || nome_azienda.pristine" class="alert alert-danger">il
+                                Nome dell'Azienda è obbligatorio</div>
+                        </div>
+                        <div class="col-6">
+                            <label for="selectSettore" class="form-label">Settore</label>
+                            <select id="selectSettore" class="form-select" name="settore_azienda"
+                                [(ngModel)]="model.settore_azienda">
+                                <option [value]="undefined" selected disabled>Seleziona un settore</option>
+                                <option *ngFor="let s of settori_aziendali" [value]="s">{{s}}</option>
+                            </select>
+                        </div>
+
+                        <legend>Dati Resposabile</legend>
+                            <div class="col-6">
+                                <label for="inputNomeResponsabile" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="inputNomeResponsabile" name="nome_responsabile"
+                                    required [(ngModel)]="model.nome_responsabile" #nome_responsabile="ngModel">
+                            </div>
+                            <div class="col-6">
+                                <label for="inputCognomeResponsabile" class="form-label">Cognome</label>
+                                <input type="text" class="form-control" id="inputCognomeResponsabile" name="cognome_responsabile"
+                                    required [(ngModel)]="model.cognome_responsabile" #cognome_responsabile="ngModel">
+                            </div>
+   
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </mat-expansion-panel>
 </div>
