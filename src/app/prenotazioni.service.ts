@@ -9,11 +9,11 @@ import { Prenotazione } from './prenotazione';
 })
 export class PrenotazioniService {
 
-  private apiUrl: string = 'https://60e7113c15387c00173e4a54.mockapi.io/';
+  private apiUrl: string = 'https://60c8ea647dafc90017ffbcea.mockapi.io/prenotazioni';
 
   constructor(private http: HttpClient) { }
 
-  postPrenotazione( p : Prenotazione) {
-    return this.http.post<Prenotazione>(this.apiUrl + 'prenotazioni/', p);
+  postPrenotazione(p: Prenotazione) {
+    return this.http.post<Prenotazione>(this.apiUrl, p);
   }
 }
