@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ListaPrenotazioniComponent } from './lista-prenotazioni/lista-prenotazioni.component';
 import { ListaMedlavInfoComponent } from './lista-medlav-info/lista-medlav-info.component'; 
+import { AuthGuardService } from './auth-guard.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ListaMedlavInfoComponent } from './lista-medlav-info/lista-medlav-info.
     FooterComponent,
     HomePageComponent,
     ListaPrenotazioniComponent,
-    ListaMedlavInfoComponent
+    ListaMedlavInfoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { ListaMedlavInfoComponent } from './lista-medlav-info/lista-medlav-info.
     BrowserAnimationsModule,
     MatExpansionModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

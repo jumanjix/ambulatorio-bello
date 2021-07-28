@@ -29,7 +29,7 @@
           </li>
 
           <!-- pannello admin -->
-          <li class="nav-item dropdown">
+          <li *ngIf="role === 'admin'" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Amministrazione</a>
             <ul class="dropdown-menu" aria-labelledby="adminDropdown">
                 <li><a class="dropdown-item" routerLink="elenco-prenotazioni">Elenco Prenotazioni</a></li>
@@ -38,10 +38,15 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Cerca nel sito" aria-label="Cerca">
-          <button class="btn btn-outline-info" type="submit">Cerca</button>
-        </form>
+
+        <ul class="navbar-nav">
+          <li *ngIf="role" class="nav-item">
+            <a role="button" class="nav-link" (click)="role = undefined">Logout</a>
+          </li>
+          <li *ngIf="!role" class="nav-item">
+            <a class="nav-link" routerLink="login">Login</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
