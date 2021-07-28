@@ -17,7 +17,7 @@
                 <p class="mb-3">Le branche specialistiche sono le seguenti:</p>
                 
                 <mat-accordion>
-                    <mat-expansion-panel *ngFor="let v of visite_specialistiche" hideToggle>
+                    <mat-expansion-panel *ngFor="let v of visite_specialistiche" >
                         <mat-expansion-panel-header>
                           <mat-panel-title>
                             {{v.nome}}
@@ -26,7 +26,7 @@
                         <p style="white-space:pre-line;">{{v.descr}}</p>
 
                         <mat-action-row>
-                            <button class="btn btn-info text-white mx-auto" routerLink="/prenotazioni">Prenota una visita</button>
+                            <button class="btn btn-info text-white mx-auto" routerLink="/prenotazioni">Prenota una visita di {{v.nome}}</button>
                         </mat-action-row>
                     </mat-expansion-panel>
 
