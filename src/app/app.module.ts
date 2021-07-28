@@ -15,7 +15,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatExpansionModule } from '@angular/material/expansion'; 
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ListaPrenotazioniComponent } from './lista-prenotazioni/lista-prenotazioni.component';
+import { ListaMedlavInfoComponent } from './lista-medlav-info/lista-medlav-info.component'; 
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     LabAnalisiComponent,
     MedicinaLavoroComponent,
     FooterComponent,
-    HomePageComponent
+    HomePageComponent,
+    ListaPrenotazioniComponent,
+    ListaMedlavInfoComponent
   ],
   imports: [
     BrowserModule,

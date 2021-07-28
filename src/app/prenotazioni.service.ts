@@ -16,4 +16,8 @@ export class PrenotazioniService {
   postPrenotazione(p: Prenotazione) {
     return this.http.post<Prenotazione>(this.apiUrl, p);
   }
+
+  getPrenotazioni() : Observable<Prenotazione[]> {
+    return this.http.get<Prenotazione[]>(this.apiUrl);
+  }
 }

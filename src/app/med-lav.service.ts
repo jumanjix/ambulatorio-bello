@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { MedLavInfo } from './med-lav-info';
 
 @Injectable({
@@ -13,5 +14,9 @@ export class MedLavService {
 
   postRichiestaMedLav(mdInfo: MedLavInfo) {
     return this.http.post<MedLavInfo>(this.apiUrl, mdInfo);
+  }
+
+  getRichiesteMedLav() : Observable<MedLavInfo[]> {
+    return this.http.get<MedLavInfo[]>(this.apiUrl);
   }
 }

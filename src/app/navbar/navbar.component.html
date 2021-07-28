@@ -27,6 +27,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contatti</a>
           </li>
+
+          <!-- pannello admin -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Amministrazione</a>
+            <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                <li><a class="dropdown-item" routerLink="elenco-prenotazioni">Elenco Prenotazioni</a></li>
+                <li><a class="dropdown-item" routerLink="richieste-medico-lavoro">Richieste Medicina del Lavoro</a></li>
+                <!--<li><hr class="dropdown-divider"></li>-->
+            </ul>
+          </li>
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Cerca nel sito" aria-label="Cerca">
