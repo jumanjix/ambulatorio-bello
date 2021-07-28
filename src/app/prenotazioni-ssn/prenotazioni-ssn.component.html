@@ -41,18 +41,18 @@
             <label for="inputCodiceFiscale" class="form-label">Codice Fiscale *</label>
             <input type="text" class="form-control" id="inputCodiceFiscale" name="codice_fiscale" required [(ngModel)]="model.codice_fiscale" #codice_fiscale="ngModel">
             <div [hidden]="codice_fiscale.valid || codice_fiscale.pristine" class="alert alert-danger">il Codice Fiscale è obbligatorio</div>
-        </div>    
+        </div>
         <div class="col-md-6">
             <label for="inputTesseraSanitaria" class="form-label">Numero Tessera Sanitaria *</label>
             <input type="text" class="form-control" id="inputTesseraSanitaria" name="nro_tessera_sanitaria" required [(ngModel)]="model.nro_tessera_sanitaria" #nro_tessera_sanitaria="ngModel">
             <div [hidden]="nro_tessera_sanitaria.valid || nro_tessera_sanitaria.pristine" class="alert alert-danger">il Numero di Tessera Sanitaria è obbligatorio</div>
         </div>
-    
+
         <div class="col-md-6">
             <label for="textDiagnosi" class="form-label">Indicazioni Diagnosi Presunta</label>
             <textarea class="form-control" id="textDiagnosi" rows="3" name="messaggio" [(ngModel)]="model.messaggio"></textarea>
         </div>
-    
+
         <div class="col-md-6">
             <!--
             <label for="inputImpegnativa" class="form-label">Allega l'impegnativa del tuo medico curante</label>
@@ -66,7 +66,7 @@
             </select>
             <br>
         </div>
-    
+
         <div class="col-6">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="trattamentoDati">
@@ -75,14 +75,15 @@
                 </label>
             </div>
         </div>
-    
+
         <div class="col-6 text-end">
             <p>I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
             <p>Inoltre, si prega di inserire almeno un recapito tra e-mail e telefono.</p>
         </div>
-    
+
         <div class="col-12">
             <button type="submit" class="btn btn-info text-white float-end" [disabled]="!formPrenotazione.form.valid">Invia Prenotazione</button>
-        </div>        
+        </div>
     </form>
 </div>
+<br><br><br><br><br><br>
