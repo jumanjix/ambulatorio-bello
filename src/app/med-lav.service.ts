@@ -7,11 +7,11 @@ import { MedLavInfo } from './med-lav-info';
 })
 export class MedLavService {
 
-  private apiUrl: string = 'https://60e7113c15387c00173e4a54.mockapi.io/richiesteML/';
+  private apiUrl: string = 'https://60c8ea647dafc90017ffbcea.mockapi.io/richiesteMl';
 
   constructor(private http: HttpClient) { }
 
-  postRichiestaMedLav( mdInfo : MedLavInfo) {
+  postRichiestaMedLav(mdInfo: MedLavInfo) {
     return this.http.post<MedLavInfo>(this.apiUrl, mdInfo);
   }
 }
