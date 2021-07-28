@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component'; 
 import { ListaPrenotazioniComponent } from './lista-prenotazioni/lista-prenotazioni.component';
 import { ListaMedlavInfoComponent } from './lista-medlav-info/lista-medlav-info.component'; 
 import { AuthGuardService } from './auth-guard.service';
@@ -32,6 +33,7 @@ import { LoginComponent } from './login/login.component';
     MedicinaLavoroComponent,
     FooterComponent,
     HomePageComponent,
+    ChiSiamoComponent,
     ListaPrenotazioniComponent,
     ListaMedlavInfoComponent,
     LoginComponent
