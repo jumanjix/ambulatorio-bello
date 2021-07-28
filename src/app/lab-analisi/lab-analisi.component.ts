@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-lab-analisi',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabAnalisiComponent implements OnInit {
 
+  // elenco branche specialistiche
   branche : string[] = [
     "Laboratorio Generale di Base",
     "Chimica Clinica",
@@ -15,7 +17,11 @@ export class LabAnalisiComponent implements OnInit {
     "Immunosierologia",
     "Microbiologia",
     "Tossicologia"
-  ]
+  ];
+
+  // puntatore elenco
+  freccia = faArrowRight;
+
   constructor() { }
 
   ngOnInit(): void {

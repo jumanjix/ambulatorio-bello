@@ -14,8 +14,11 @@
 
                 <section class="mb-5">
                     Le branche specialistiche coperte dal nostro Laboratorio sono:
-                    <ul>
-                        <li *ngFor="let b of branche">{{b}}</li>
+                    <ul class="mt-2">
+                        <li class="mb-2" *ngFor="let b of branche">
+                            <fa-icon class="text-info" [icon]="freccia"></fa-icon>
+                            <b> {{b | uppercase}}</b>
+                        </li>
                     </ul>
                 </section>
 
