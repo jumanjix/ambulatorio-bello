@@ -6,6 +6,7 @@ import { MedicinaLavoroComponent } from './medicina-lavoro/medicina-lavoro.compo
 import { PrenotazioniSsnComponent } from './prenotazioni-ssn/prenotazioni-ssn.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 import { VisiteSpecialisticheComponent } from './visite-specialistiche/visite-specialistiche.component';
+import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
 
 const routes: Routes = [
   { path: 'prenotazioni', component: PrenotazioniComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'visite-specialistiche', component: VisiteSpecialisticheComponent },
   { path: 'laboratorio-analisi', component: LabAnalisiComponent },
   { path: 'medicina-del-lavoro', component: MedicinaLavoroComponent },
+  {path: 'chi-siamo', component: ChiSiamoComponent},
   { path: '', component: HomePageComponent }
 ];
 
