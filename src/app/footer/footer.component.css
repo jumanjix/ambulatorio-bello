@@ -3,8 +3,10 @@
   --footer-background:#b84518;
   display: grid;
   position: relative;
+  bottom: 0px;
   grid-area: footer;
   min-height: 12rem;
+  min-width: 100%;
 }
  .footer .bubbles {
   position: absolute;
