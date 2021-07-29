@@ -20,4 +20,8 @@ export class PrenotazioniService {
   getPrenotazioni() : Observable<Prenotazione[]> {
     return this.http.get<Prenotazione[]>(this.apiUrl);
   }
+
+  deletePrenotazione( id : number ) {
+    return this.http.delete<Prenotazione>(this.apiUrl + id);
+  }
 }

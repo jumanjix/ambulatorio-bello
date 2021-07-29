@@ -1,5 +1,6 @@
 export class Prenotazione {
     constructor(
+        public id: number,
         public nome : string,
         public cognome : string,
         public codice_fiscale : string,

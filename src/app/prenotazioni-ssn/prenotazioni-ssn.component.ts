@@ -9,7 +9,7 @@ import { PrenotazioniService } from '../prenotazioni.service';
 })
 export class PrenotazioniSsnComponent implements OnInit {
 
-  model : Prenotazione = new Prenotazione('', '', '', ''); // campi obbligatori vanno iniziatizzati: nome, cognome, codice fiscale e nro tessera
+  model : Prenotazione = new Prenotazione(0,'', '', '', ''); // campi obbligatori vanno iniziatizzati: nome, cognome, codice fiscale e nro tessera
   
   orari_contatto : string[] = [ // popola la dropdown
     '8:30 - 10:30',

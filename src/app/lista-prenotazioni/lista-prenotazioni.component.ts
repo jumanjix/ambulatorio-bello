@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Prenotazione } from '../prenotazione';
 import { PrenotazioniService } from '../prenotazioni.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-lista-prenotazioni',
@@ -9,9 +11,9 @@ import { PrenotazioniService } from '../prenotazioni.service';
 })
 export class ListaPrenotazioniComponent implements OnInit {
 
-  prenotazioni : Prenotazione[] = [];
+  prenotazioni : Array<Prenotazione | undefined> = [];
 
-  constructor( private servicePrenotazioni: PrenotazioniService ) { 
+  constructor( private servicePrenotazioni: PrenotazioniService, private dialog : MatDialog ) { 
     this.servicePrenotazioni.getPrenotazioni().subscribe( data => {
       this.prenotazioni = data;
     })
@@ -20,4 +22,20 @@ export class ListaPrenotazioniComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  confermaEliminazione( p : Prenotazione) {
+    let dialogRef = this.dialog.open( DialogComponent, {
+      data: p
+    });
+    
+    dialogRef.afterClosed().subscribe( res => {
+      if ( res.data ) {
+        this.deletePrenotazione( res.data );
+      }
+    })
+  }
+
+  deletePrenotazione(id: number){
+    let index = this.prenotazioni.indexOf(this.prenotazioni.find( p => p?.id == id));
+
+  }
 }

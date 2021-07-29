@@ -7,7 +7,7 @@
                 <mat-expansion-panel *ngFor="let p of prenotazioni">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Prenotazione da {{p.nome | uppercase }} {{p.cognome | uppercase }}
+                            Prenotazione da {{p?.nome | uppercase }} {{p?.cognome | uppercase }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
@@ -15,53 +15,53 @@
                         <tbody>
                             <tr>
                                 <th scope="col">Nome</th>
-                                <td>{{p.nome | uppercase }}</td>
+                                <td>{{p?.nome | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Cognome</th>
-                                <td>{{p.cognome | uppercase }}</td>
+                                <td>{{p?.cognome | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Codice Fiscale</th>
-                                <td>{{p.codice_fiscale | uppercase }}</td>
+                                <td>{{p?.codice_fiscale | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Numero Tessera Sanitaria</th>
-                                <td>{{p.nro_tessera_sanitaria}}</td>
+                                <td>{{p?.nro_tessera_sanitaria}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Email</th>
-                                <td>{{p.email}}</td>
+                                <td>{{p?.email}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Telefono</th>
-                                <td>{{p.tel}}</td>
+                                <td>{{p?.tel}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Indirizzo</th>
-                                <td>{{p.indirizzo |titlecase}}</td>
+                                <td>{{p?.indirizzo |titlecase}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">C.A.P.</th>
-                                <td>{{p.cap}}</td>
+                                <td>{{p?.cap}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Comune</th>
-                                <td>{{p.citta | uppercase }}</td>
+                                <td>{{p?.citta | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Preferenza Orario Contatti</th>
-                                <td>{{p.orario}}</td>
+                                <td>{{p?.orario}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Diagnosi Presunta</th>
-                                <td>{{p.messaggio}}</td>
+                                <td>{{p?.messaggio}}</td>
                             </tr>
                         </tbody>
                     </table>
 
                     <mat-action-row>
-                        <button class="btn btn-danger text-white mx-auto">Elimina</button>
+                        <button class="btn btn-danger text-white mx-auto" (click)="confermaEliminazione(p!)">Elimina</button>
                     </mat-action-row>
                 </mat-expansion-panel>
             </div>

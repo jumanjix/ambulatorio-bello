@@ -21,6 +21,8 @@ import { ListaPrenotazioniComponent } from './lista-prenotazioni/lista-prenotazi
 import { ListaMedlavInfoComponent } from './lista-medlav-info/lista-medlav-info.component'; 
 import { AuthGuardService } from './auth-guard.service';
 import { LoginComponent } from './login/login.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { LoginComponent } from './login/login.component';
     ChiSiamoComponent,
     ListaPrenotazioniComponent,
     ListaMedlavInfoComponent,
-    LoginComponent
+    LoginComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
