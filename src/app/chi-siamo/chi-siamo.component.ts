@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,NavigationStart} from '@angular/router';
+
 
 @Component({
   selector: 'app-chi-siamo',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChiSiamoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  goToBooking(){
+    this.router.navigate(['prenotazioni']);
+    }
 
 }

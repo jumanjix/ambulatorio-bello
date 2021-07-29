@@ -1,0 +1,48 @@
+.container {
+margin-top: 100px;
+margin-bottom: 200px;
+}
+
+.cards {
+
+    margin-top: 100px;
+
+}
+
+p {
+    margin-bottom: 1.1875rem
+}
+
+
+.sezione-immagini .immagine{
+    min-height: 30rem;
+    background-size: cover;
+}
+
+.sezione-immagini .testo{
+    padding: 3rem;
+}
+
+h2{
+    margin-bottom: 45px;
+}
+
+.book{
+   text-align: center;
+}
+
+button{
+    margin-bottom: 25px;
+    margin-top: 10px;
+    font-size: 21px;
+}
+
+#title2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+.one{
+    text-align: center
+}
