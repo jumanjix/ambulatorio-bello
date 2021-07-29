@@ -28,23 +28,35 @@ export class AuthService {
   }
 
   isAuthenticated( route: ActivatedRouteSnapshot ) {
-    this.canRoute = false;
-    console.log(    this.role
+    this.canRoute = true;
+    console.log(  'isAuth role: '+  this.role
       );
     
     switch( route.routeConfig?.path ) {
       
       case 'elenco-prenotazioni':
-        if (this.role === 'admin') { this.canRoute = true }
+        if ( this.role !== 'admin' ) { this.canRoute = false }
         break;
       case 'richieste-medico-lavoro':
-        if (this.role === 'admin') { this.canRoute = true }
+        if ( this.role !== 'admin' ) { this.canRoute = false }
         break;
-      // aggiungere casi se necessario TODO: login
+      case 'login':
+        if ( this.role !== undefined ) { this.canRoute = false }
+        break;
+      
+        // aggiungere casi se necessario
     }
 
     if( !this.canRoute ) {
+      console.log('cant route mate! path is: ' + route.routeConfig?.path);
+
+      // se utente anonimo vuole accedere alla pagina Amministrazione viene reindirizzato sul Login
+      if ( route.routeConfig?.path === ( 'elenco-prenotazioni' || 'richieste-medico-lavoro')) {
+        this.router.navigate(['login']);
+      } else {
+      // se utente loggato vuole accedere alla pagina Login viene reindirizzato sulla Home
       this.router.navigate(['/']);
+      }
     }
 
     return this.canRoute;

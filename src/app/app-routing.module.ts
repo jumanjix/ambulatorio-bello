@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'laboratorio-analisi', component: LabAnalisiComponent },
   { path: 'medicina-del-lavoro', component: MedicinaLavoroComponent },
   { path: 'chi-siamo', component: ChiSiamoComponent},
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent , canActivate: [AuthGuardService]},
   { path: 'elenco-prenotazioni', component: ListaPrenotazioniComponent, canActivate: [AuthGuardService] },
   { path: 'richieste-medico-lavoro', component: ListaMedlavInfoComponent, canActivate: [AuthGuardService]},
   { path: '', component: HomePageComponent }

@@ -1,9 +1,73 @@
-<p>lista-prenotazioni works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 my-5">
+            <h1>Prenotazioni ricevute:</h1>
+            <hr>
+            <div class="col-8 mx-auto">
+                <mat-expansion-panel *ngFor="let p of prenotazioni">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Prenotazione da {{p.nome}} {{p.cognome}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
 
-<ul>
-    <li *ngFor="let p of prenotazioni">
-        {{p | json}}
-    </li>
-</ul>
+                    <table class="table table-striped table-sm">
+                        <tbody>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <td>{{p.nome}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Cognome</th>
+                                <td>{{p.cognome}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Codice Fiscale</th>
+                                <td>{{p.codice_fiscale}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Numero Tessera Sanitaria</th>
+                                <td>{{p.nro_tessera_sanitaria}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Email</th>
+                                <td>{{p.email}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Telefono</th>
+                                <td>{{p.tel}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Indirizzo</th>
+                                <td>{{p.indirizzo}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">C.A.P.</th>
+                                <td>{{p.cap}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Comune</th>
+                                <td>{{p.citta}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Preferenza Orario Contatti</th>
+                                <td>{{p.orario}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Diagnosi Presunta</th>
+                                <td>{{p.messaggio}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <mat-action-row>
+                        <button class="btn btn-danger text-white mx-auto">Elimina</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <br><br><br><br><br><br>
