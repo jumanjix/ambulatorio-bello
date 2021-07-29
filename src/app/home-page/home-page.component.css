@@ -10,3 +10,9 @@
  .servizi:hover {
     transform: scale(1.2);
 }
+
+@media only screen and (max-width: 768px) {
+    .servizi {
+    margin-bottom: 40px;    
+    }
+}
