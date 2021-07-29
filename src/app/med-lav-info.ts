@@ -1,5 +1,6 @@
 export class MedLavInfo {
     constructor(
+        public id : number,
         public nome_azienda : string,
         public nome_responsabile : string,
         public cognome_responsabile : string,

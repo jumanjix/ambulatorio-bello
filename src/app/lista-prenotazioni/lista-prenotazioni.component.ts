@@ -29,13 +29,20 @@ export class ListaPrenotazioniComponent implements OnInit {
     
     dialogRef.afterClosed().subscribe( res => {
       if ( res.data ) {
-        this.deletePrenotazione( res.data );
+        console.log('res.data: '+ res.data);
+        
+        this.eliminaPrenotazione( res.data );
       }
     })
   }
 
-  deletePrenotazione(id: number){
+  eliminaPrenotazione(id: number){
     let index = this.prenotazioni.indexOf(this.prenotazioni.find( p => p?.id == id));
 
+    this.servicePrenotazioni.deletePrenotazione(id).subscribe((res)=>{
+      //console.log('prima' + this.products);
+      
+      this.prenotazioni.splice(index, 1);
+    });
   }
 }

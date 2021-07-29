@@ -18,6 +18,8 @@ export class DialogComponent implements OnInit {
   }
 
   confirm(id : number) {
+    console.log('id confiemd: '+id);
+    
     this.dialogRef.close({ data : id})
   }
 

@@ -23,6 +23,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { LoginComponent } from './login/login.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MedLavDeleteDialogComponent } from './med-lav-delete-dialog/med-lav-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ListaPrenotazioniComponent,
     ListaMedlavInfoComponent,
     LoginComponent,
-    DialogComponent
+    DialogComponent,
+    MedLavDeleteDialogComponent
   ],
   imports: [
     BrowserModule,

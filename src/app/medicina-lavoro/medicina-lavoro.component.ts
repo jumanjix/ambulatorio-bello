@@ -48,7 +48,7 @@ export class MedicinaLavoroComponent implements OnInit {
   freccia = faArrowRight;
 
   // modello richiesta info 
-  model: MedLavInfo = new MedLavInfo('', '', '', '', '', '');
+  model: MedLavInfo = new MedLavInfo(0, '', '', '', '', '', '');
 
   settori_aziendali : string[] = [
     'Industria Alimentare e Bevande',

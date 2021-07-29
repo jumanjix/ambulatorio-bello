@@ -7,7 +7,7 @@
                 <mat-expansion-panel *ngFor="let r of richieste">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Richiesta da {{r.nome_azienda | uppercase }}
+                            Richiesta da {{r?.nome_azienda | uppercase }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
@@ -15,37 +15,37 @@
                         <tbody>
                             <tr>
                                 <th scope="col">Nome Azienda</th>
-                                <td>{{r.nome_azienda | uppercase }}</td>
+                                <td>{{r?.nome_azienda | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Settore</th>
-                                <td>{{r.settore_azienda}}</td>
+                                <td>{{r?.settore_azienda}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Nome Responsabile</th>
-                                <td>{{r.nome_responsabile | uppercase }}</td>
+                                <td>{{r?.nome_responsabile | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Cognome Responsabile</th>
-                                <td>{{r.cognome_responsabile | uppercase }}</td>
+                                <td>{{r?.cognome_responsabile | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Email</th>
-                                <td>{{r.email}}</td>
+                                <td>{{r?.email}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Telefono</th>
-                                <td>{{r.tel}}</td>
+                                <td>{{r?.tel}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Messaggio</th>
-                                <td>{{r.richiesta}}</td>
+                                <td>{{r?.richiesta}}</td>
                             </tr>
                         </tbody>
                     </table>
 
                     <mat-action-row>
-                        <button class="btn btn-danger text-white mx-auto">Elimina</button>
+                        <button class="btn btn-danger text-white mx-auto" (click)="confermaEliminazione(r!)">Elimina</button>
                     </mat-action-row>
                 </mat-expansion-panel>
             </div>

@@ -8,7 +8,7 @@ import { MedLavInfo } from './med-lav-info';
 })
 export class MedLavService {
 
-  private apiUrl: string = 'https://60c8ea647dafc90017ffbcea.mockapi.io/richiesteMl';
+  private apiUrl: string = 'https://60c8ea647dafc90017ffbcea.mockapi.io/richiesteMl/';
 
   constructor(private http: HttpClient) { }
 
@@ -18,5 +18,9 @@ export class MedLavService {
 
   getRichiesteMedLav() : Observable<MedLavInfo[]> {
     return this.http.get<MedLavInfo[]>(this.apiUrl);
+  }
+
+  deleteRichiestaMedLav( id : number ) {
+    return this.http.delete<MedLavInfo>(this.apiUrl + id);
   }
 }

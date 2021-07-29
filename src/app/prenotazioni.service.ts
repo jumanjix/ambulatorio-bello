@@ -9,7 +9,7 @@ import { Prenotazione } from './prenotazione';
 })
 export class PrenotazioniService {
 
-  private apiUrl: string = 'https://60c8ea647dafc90017ffbcea.mockapi.io/prenotazioni';
+  private apiUrl: string = 'https://60c8ea647dafc90017ffbcea.mockapi.io/prenotazioni/';
 
   constructor(private http: HttpClient) { }
 
