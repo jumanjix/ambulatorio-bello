@@ -7,7 +7,7 @@
                 <mat-expansion-panel *ngFor="let p of prenotazioni">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Prenotazione da {{p.nome}} {{p.cognome}}
+                            Prenotazione da {{p.nome | uppercase }} {{p.cognome | uppercase }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
@@ -15,15 +15,15 @@
                         <tbody>
                             <tr>
                                 <th scope="col">Nome</th>
-                                <td>{{p.nome}}</td>
+                                <td>{{p.nome | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Cognome</th>
-                                <td>{{p.cognome}}</td>
+                                <td>{{p.cognome | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Codice Fiscale</th>
-                                <td>{{p.codice_fiscale}}</td>
+                                <td>{{p.codice_fiscale | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Numero Tessera Sanitaria</th>
@@ -39,7 +39,7 @@
                             </tr>
                             <tr>
                                 <th scope="col">Indirizzo</th>
-                                <td>{{p.indirizzo}}</td>
+                                <td>{{p.indirizzo |titlecase}}</td>
                             </tr>
                             <tr>
                                 <th scope="col">C.A.P.</th>
@@ -47,7 +47,7 @@
                             </tr>
                             <tr>
                                 <th scope="col">Comune</th>
-                                <td>{{p.citta}}</td>
+                                <td>{{p.citta | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Preferenza Orario Contatti</th>

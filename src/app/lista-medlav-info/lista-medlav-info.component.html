@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-12 my-5">
-            <h1>Prenotazioni ricevute:</h1>
+            <h1>Richieste Medicina del Lavoro ricevute:</h1>
             <hr>
             <div class="col-8 mx-auto">
                 <mat-expansion-panel *ngFor="let r of richieste">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Richiesta da {{r.nome_azienda}}
+                            Richiesta da {{r.nome_azienda | uppercase }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
@@ -15,7 +15,7 @@
                         <tbody>
                             <tr>
                                 <th scope="col">Nome Azienda</th>
-                                <td>{{r.nome_azienda}}</td>
+                                <td>{{r.nome_azienda | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Settore</th>
@@ -23,11 +23,11 @@
                             </tr>
                             <tr>
                                 <th scope="col">Nome Responsabile</th>
-                                <td>{{r.nome_responsabile}}</td>
+                                <td>{{r.nome_responsabile | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Cognome Responsabile</th>
-                                <td>{{r.cognome_responsabile}}</td>
+                                <td>{{r.cognome_responsabile | uppercase }}</td>
                             </tr>
                             <tr>
                                 <th scope="col">Email</th>
