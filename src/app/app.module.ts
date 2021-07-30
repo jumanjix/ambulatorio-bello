@@ -24,6 +24,7 @@ import { LoginComponent } from './login/login.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MedLavDeleteDialogComponent } from './med-lav-delete-dialog/med-lav-delete-dialog.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MedLavDeleteDialogComponent } from './med-lav-delete-dialog/med-lav-del
     ListaMedlavInfoComponent,
     LoginComponent,
     DialogComponent,
-    MedLavDeleteDialogComponent
+    MedLavDeleteDialogComponent,
+    ScrollTopComponent
   ],
   imports: [
     BrowserModule,
