@@ -70,7 +70,7 @@
                 </div>
             </div>
 
-            <div class="col-12 my-5">
+            <div class="col-12 mb-5">
                 <label for="textRichiestaInfo" class="form-label">Richiesta</label>
                 <textarea class="form-control" id="textRichiestaInfo" rows="5" name="richiesta" required
                     [(ngModel)]="model.richiesta" #richiesta="ngModel"></textarea>
@@ -80,9 +80,10 @@
             </div>
     
             <div class="col-12">
-                <button class="btn btn-warning text-white mx-5" (click)="cancel()">Annulla</button> 
+                <button type="submit" class="btn btn-info text-white float-end me-3" [disabled]="!formMedLav.form.valid">Modifica Richiesta</button>
 
-                <button type="submit" class="btn btn-info text-white float-end mx-5" [disabled]="!formMedLav.form.valid">Modifica Richiesta</button>
+                <button class="btn btn-warning text-white float-end me-3" (click)="cancel()">Annulla</button> 
+
             </div>
         </form>
 <!--         <button class="btn btn-danger" (click)="confirm(data.prenotazione.id)">Conferma</button>

@@ -8,3 +8,7 @@ div.dialog-window {
 .mat-dialog-actions {
     place-content: space-between;
 }
+
+form div {
+    padding: 5px;
+}

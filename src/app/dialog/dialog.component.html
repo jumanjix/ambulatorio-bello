@@ -76,10 +76,11 @@
                 <br>
             </div>
     
-            <div class="col-12">
-                <button class="btn btn-warning float-end mx-2" (click)="cancel()">Annulla</button> 
-
+            <div class="col-12 mt-5">
                 <button type="submit" class="btn btn-info text-white float-end" [disabled]="!formPrenotazione.form.valid">Modifica Prenotazione</button>
+
+                <button class="btn btn-warning text-white float-end mx-2" (click)="cancel()">Annulla</button> 
+
             </div>
         </form>
 <!--         <button class="btn btn-danger" (click)="confirm(data.prenotazione.id)">Conferma</button>
