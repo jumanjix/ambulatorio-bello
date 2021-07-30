@@ -13,6 +13,8 @@ export class ListaPrenotazioniComponent implements OnInit {
 
   prenotazioni : Array<Prenotazione | undefined> = [];
 
+  operazione! : string;
+
   constructor( private servicePrenotazioni: PrenotazioniService, private dialog : MatDialog ) { 
     this.servicePrenotazioni.getPrenotazioni().subscribe( data => {
       this.prenotazioni = data;
@@ -45,4 +47,24 @@ export class ListaPrenotazioniComponent implements OnInit {
       this.prenotazioni.splice(index, 1);
     });
   }
+
+  modificaPrenotazione( p : Prenotazione ) {
+
+    this.operazione = 'modifica'
+    let modificaDialogRef = this.dialog.open( DialogComponent, {
+      data: {'prenotazione':p, 'operazione':  this.operazione}
+    });
+
+    modificaDialogRef.afterClosed().subscribe( res => {
+      if ( res.data ) {
+        //let index = this.prenotazioni.indexOf(this.prenotazioni.find( p => p?.id === res.data));
+        console.log(res);
+        
+        this.servicePrenotazioni.putPrenotazione(res.data).subscribe( res => {
+
+        })
+      }
+    })
+  }
+  
 }

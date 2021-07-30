@@ -24,4 +24,10 @@ export class PrenotazioniService {
   deletePrenotazione( id : number ) {
     return this.http.delete<Prenotazione>(this.apiUrl + id);
   }
+
+  putPrenotazione( p : Prenotazione ) {
+    console.log(p);
+    
+    return this.http.put<Prenotazione>( this.apiUrl + p.id, p );
+  }
 }

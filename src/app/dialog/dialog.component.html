@@ -1,6 +1,89 @@
-<h1 mat-dialog-title>Elimina Prenotazione</h1>
-<div mat-dialog-content>
-    <p>Sei sicuro di voler eliminare questa prenotazione?</p>
-    <button class="btn btn-warning" (click)="cancel()">Annulla</button>&nbsp;
-    <button class="btn btn-danger" (click)="confirm(data.id)">Conferma</button>
+<div *ngIf="operazione === 'elimina'">
+    <h1 mat-dialog-title>Elimina Prenotazione</h1>
+    <div mat-dialog-content>
+        <p>Sei sicuro di voler eliminare questa prenotazione?</p>
+        <button class="btn btn-warning" (click)="cancel()">Annulla</button>&nbsp;
+        <button class="btn btn-danger" (click)="confirm(data.prenotazione.id)">Conferma</button>
+    </div>
+</div>
+
+<div *ngIf="operazione === 'modifica'">
+    <h1 mat-dialog-title>Modifica Prenotazione</h1>
+    <div mat-dialog-content>
+        <form class="row" (ngSubmit)="confirmModifica(formPrenotazione.value)" #formPrenotazione="ngForm">
+            
+            <div class="col-12">
+                <label for="id">ID Prenotazione: </label>
+                <input type="text" id="id" class="form-control" name="id" readonly [(ngModel)]="model.id" #id="ngModel">
+                         
+            </div>
+ 
+            <div class="col-md-6">
+                <label for="inputNome" class="form-label">Nome *</label>
+                <input type="text" class="form-control" id="inputNome" name="nome" required [(ngModel)]="model.nome" #nome="ngModel">
+                <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger">il Nome è obbligatorio</div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputCognome" class="form-label">Cognome *</label>
+                <input type="text" class="form-control" id="inputCognome" name="cognome" required [(ngModel)]="model.cognome" #cognome="ngModel">
+                <div [hidden]="cognome.valid || cognome.pristine" class="alert alert-danger">il Cognome è obbligatorio</div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="inputEmail" name="email" [(ngModel)]="model.email">
+            </div>
+            <div class="col-md-6">
+                <label for="inputTelefono" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="inputTelefono" name="tel" [(ngModel)]="model.tel">
+            </div>
+            <div class="col-md-6">
+                <label for="inputIndirizzo" class="form-label">Indirizzo di residenza</label>
+                <input type="text" class="form-control" id="inputIndirizzo" placeholder="Via Roma, 123" name="indirizzo" [(ngModel)]="model.indirizzo">
+            </div>
+            <div class="col-md-2">
+                <label for="inputCap" class="form-label">CAP</label>
+                <input type="text" class="form-control" id="inputCap" name="cap" [(ngModel)]="model.cap">
+            </div>
+            <div class="col-md-4">
+                <label for="inputCitta" class="form-label">Città</label>
+                <input type="text" class="form-control" id="inputCitta" name="citta" [(ngModel)]="model.citta">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCodiceFiscale" class="form-label">Codice Fiscale *</label>
+                <input type="text" class="form-control" id="inputCodiceFiscale" name="codice_fiscale" required [(ngModel)]="model.codice_fiscale" #codice_fiscale="ngModel">
+                <div [hidden]="codice_fiscale.valid || codice_fiscale.pristine" class="alert alert-danger">il Codice Fiscale è obbligatorio</div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputTesseraSanitaria" class="form-label">Numero Tessera Sanitaria *</label>
+                <input type="text" class="form-control" id="inputTesseraSanitaria" name="nro_tessera_sanitaria" required [(ngModel)]="model.nro_tessera_sanitaria" #nro_tessera_sanitaria="ngModel">
+                <div [hidden]="nro_tessera_sanitaria.valid || nro_tessera_sanitaria.pristine" class="alert alert-danger">il Numero di Tessera Sanitaria è obbligatorio</div>
+            </div>
+    
+            <div class="col-md-6">
+                <label for="textDiagnosi" class="form-label">Indicazioni Diagnosi Presunta</label>
+                <textarea class="form-control" id="textDiagnosi" rows="3" name="messaggio" [(ngModel)]="model.messaggio"></textarea>
+            </div>
+    
+            <div class="col-md-6">
+                <label for="selectOrarioContatto" class="form-label">Orario in cui desideri essere contattato</label>
+                <select id="selectOrarioContatto" class="form-select" name="orario" [(ngModel)]="model.orario">
+                    <option [value]="undefined" selected disabled>Scegli orario...</option>
+                    <option *ngFor="let h of orari_contatto" [value]="h">{{h}}</option>
+                </select>
+                <br>
+            </div>
+    
+            
+        </form>
+<!--         <button class="btn btn-danger" (click)="confirm(data.prenotazione.id)">Conferma</button>
+ -->    
+    </div>
+    <mat-dialog-actions>
+        <div class="col-12">
+
+            <button type="submit" class="btn btn-info text-white float-end" [disabled]="!formPrenotazione.form.valid">Modifica Prenotazione</button>
+            <button class="btn btn-warning float-end mx-2" (click)="cancel()">Annulla</button> 
+
+        </div>
+    </mat-dialog-actions>
 </div>

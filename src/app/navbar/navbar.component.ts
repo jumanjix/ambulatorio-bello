@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  role?: 'admin';
+  role?: 'admin' = 'admin'; // inizializzato per test
 
   constructor( private authService : AuthService) { 
     this.authService.roleChange.subscribe( (res) => {
