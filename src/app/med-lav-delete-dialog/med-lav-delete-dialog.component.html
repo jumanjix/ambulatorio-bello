@@ -1,15 +1,17 @@
-<div *ngIf="operazione === 'elimina'">
+<div class="dialog-window" *ngIf="operazione === 'elimina'">
     <h1 mat-dialog-title>Elimina Richiesta</h1>
-    <div mat-dialog-content>
-        <p>Sei sicuro di voler eliminare questa richiesta?</p>
-        <button class="btn btn-warning" (click)="cancel()">Annulla</button>&nbsp;
-        <button class="btn btn-danger" (click)="confirm(data.richiesta.id)">Conferma</button>
-    </div>
+    <mat-dialog-content>
+        <p>Si desidera eliminare questa richiesta?</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button class="btn btn-warning ms-3" (click)="cancel()">Annulla</button>&nbsp;
+        <button class="btn btn-danger ms-5" (click)="confirm(data.richiesta.id)">Conferma</button>
+    </mat-dialog-actions>
 </div>
 
-<div *ngIf="operazione === 'modifica'">
+<div class="dialog-window" *ngIf="operazione === 'modifica'">
     <h1 mat-dialog-title>Modifica Richiesta</h1>
-    <div mat-dialog-content>
+    <mat-dialog-content>
         <form class="row" (ngSubmit)="confirmModifica(formMedLav.value)" #formMedLav="ngForm">
             
             <div class="col-12">
@@ -78,12 +80,12 @@
             </div>
     
             <div class="col-12">
-                <button class="btn btn-warning float-end mx-2" (click)="cancel()">Annulla</button> 
+                <button class="btn btn-warning text-white mx-5" (click)="cancel()">Annulla</button> 
 
-                <button type="submit" class="btn btn-info text-white float-end" [disabled]="!formMedLav.form.valid">Modifica Richiesta</button>
+                <button type="submit" class="btn btn-info text-white float-end mx-5" [disabled]="!formMedLav.form.valid">Modifica Richiesta</button>
             </div>
         </form>
 <!--         <button class="btn btn-danger" (click)="confirm(data.prenotazione.id)">Conferma</button>
  -->    
-    </div>
+    </mat-dialog-content>
 </div>

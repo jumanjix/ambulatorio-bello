@@ -1,13 +1,16 @@
-<div *ngIf="operazione === 'elimina'">
+<div class="dialog-window" *ngIf="operazione === 'elimina'">
     <h1 mat-dialog-title>Elimina Prenotazione</h1>
-    <div mat-dialog-content>
-        <p>Sei sicuro di voler eliminare questa prenotazione?</p>
-        <button class="btn btn-warning" (click)="cancel()">Annulla</button>&nbsp;
+    <mat-dialog-content>
+        <p>Si desidere eliminare questa prenotazione?</p>
+    
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button class="btn btn-warning text-white" (click)="cancel()">Annulla</button>
         <button class="btn btn-danger" (click)="confirm(data.prenotazione.id)">Conferma</button>
-    </div>
+    </mat-dialog-actions>
 </div>
 
-<div *ngIf="operazione === 'modifica'">
+<div class="dialog-window" *ngIf="operazione === 'modifica'">
     <h1 mat-dialog-title>Modifica Prenotazione</h1>
     <div mat-dialog-content>
         <form class="row" (ngSubmit)="confirmModifica(formPrenotazione.value)" #formPrenotazione="ngForm">

@@ -10,7 +10,7 @@ export class AuthService {
 
   private apiUrl: string = 'https://60e7113c15387c00173e4a54.mockapi.io/';
 
-  role: 'admin' | undefined;
+  role: 'admin' | undefined = 'admin'; // initizializzato per test. rimettere non init
   roleChange: Subject< 'admin' | undefined > = new Subject< 'admin' | undefined >();
 
   canRoute!: boolean;

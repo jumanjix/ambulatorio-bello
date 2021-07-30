@@ -1,6 +1,7 @@
-div {
-    padding: 30px;
+div.dialog-window {
+    padding: 10px;
 }
 .btn {
-    border-radius: 30px;
+    border-radius: 10px;
+    font-weight: bold;
 }

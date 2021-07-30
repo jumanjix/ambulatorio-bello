@@ -1,3 +1,15 @@
 ::ng-deep .mat-expansion-indicator::after {
     color: black;
 }
+
+.mat-action-row {
+    place-content: space-between;
+}
+
+td {
+    width: 60%;
+}
+
+button[mat-button] {
+    font-weight: bold;
+}

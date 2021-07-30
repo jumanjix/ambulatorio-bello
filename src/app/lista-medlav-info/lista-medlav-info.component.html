@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 my-5">
-            <h1>Richieste Medicina del Lavoro ricevute:</h1>
+            <h2>Richieste Medicina del Lavoro ricevute:</h2>
             <hr>
             <div class="col-8 mx-auto">
                 <mat-expansion-panel *ngFor="let r of richieste">
@@ -45,8 +45,8 @@
                     </table>
 
                     <mat-action-row>
-                        <button class="btn btn-danger text-white mx-auto" (click)="confermaEliminazione(r!)">Elimina</button>
-                        <button class="btn btn-warning text-white mx-auto" (click)="modificaRichiesta(r!)">Modifica</button>
+                        <button mat-button class="btn btn-danger text-white ms-5" (click)="confermaEliminazione(r!)">Elimina</button>
+                        <button mat-button class="btn btn-warning text-white me-5" (click)="modificaRichiesta(r!)">Modifica</button>
                     </mat-action-row>
                 </mat-expansion-panel>
             </div>
@@ -56,5 +56,5 @@
 </div>
 
 <br><br><br><br><br><br>
-
+<br>
 <br><br><br><br><br><br>
