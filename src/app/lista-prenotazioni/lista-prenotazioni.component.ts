@@ -25,8 +25,11 @@ export class ListaPrenotazioniComponent implements OnInit {
   }
 
   confermaEliminazione( p : Prenotazione) {
+
+    this.operazione = 'elimina';
+
     let dialogRef = this.dialog.open( DialogComponent, {
-      data: p
+      data: {'prenotazione':p, 'operazione':  this.operazione}
     });
     
     dialogRef.afterClosed().subscribe( res => {
@@ -50,7 +53,8 @@ export class ListaPrenotazioniComponent implements OnInit {
 
   modificaPrenotazione( p : Prenotazione ) {
 
-    this.operazione = 'modifica'
+    this.operazione = 'modifica';
+
     let modificaDialogRef = this.dialog.open( DialogComponent, {
       data: {'prenotazione':p, 'operazione':  this.operazione}
     });
