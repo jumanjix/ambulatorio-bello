@@ -13,6 +13,8 @@ export class ListaMedlavInfoComponent implements OnInit {
 
   richieste : Array< MedLavInfo | undefined > = [];
 
+  operazione! : string;
+
   constructor( private serviceMedLav: MedLavService, private dialog : MatDialog ) { 
     this.serviceMedLav.getRichiesteMedLav().subscribe( data => {
       this.richieste = data;
@@ -23,8 +25,11 @@ export class ListaMedlavInfoComponent implements OnInit {
   }
 
   confermaEliminazione( req : MedLavInfo) {
+
+    this.operazione = 'elimina';
+
     let dialogRef = this.dialog.open( MedLavDeleteDialogComponent, {
-      data: req
+      data: { 'richiesta' : req, 'operazione' : this.operazione }
     });
     
     dialogRef.afterClosed().subscribe( res => {
@@ -45,4 +50,25 @@ export class ListaMedlavInfoComponent implements OnInit {
       this.richieste.splice(index, 1);
     });
   }
+
+  modificaRichiesta( r : MedLavInfo ) {
+
+    this.operazione = 'modifica';
+
+    let modificaDialogRef = this.dialog.open( MedLavDeleteDialogComponent, {
+      data: {'richiesta' : r, 'operazione':  this.operazione}
+    });
+
+    modificaDialogRef.afterClosed().subscribe( res => {
+      if ( res.data ) {
+        //let index = this.prenotazioni.indexOf(this.prenotazioni.find( p => p?.id === res.data));
+        console.log(res);
+        
+        this.serviceMedLav.putRichiestaMedLav(res.data).subscribe( res => {
+
+        })
+      }
+    })
+  }
+
 }

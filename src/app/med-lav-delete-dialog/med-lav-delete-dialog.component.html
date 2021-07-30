@@ -1,6 +1,89 @@
-<h1 mat-dialog-title>Elimina Richiesta</h1>
-<div mat-dialog-content>
-    <p>Sei sicuro di voler eliminare questa richiesta?</p>
-    <button class="btn btn-warning" (click)="cancel()">Annulla</button>&nbsp;
-    <button class="btn btn-danger" (click)="confirm(data.id)">Conferma</button>
+<div *ngIf="operazione === 'elimina'">
+    <h1 mat-dialog-title>Elimina Richiesta</h1>
+    <div mat-dialog-content>
+        <p>Sei sicuro di voler eliminare questa richiesta?</p>
+        <button class="btn btn-warning" (click)="cancel()">Annulla</button>&nbsp;
+        <button class="btn btn-danger" (click)="confirm(data.richiesta.id)">Conferma</button>
+    </div>
+</div>
+
+<div *ngIf="operazione === 'modifica'">
+    <h1 mat-dialog-title>Modifica Richiesta</h1>
+    <div mat-dialog-content>
+        <form class="row" (ngSubmit)="confirmModifica(formMedLav.value)" #formMedLav="ngForm">
+            
+            <div class="col-12">
+                <label for="id">ID Richiesta: </label>
+                <input type="text" id="id" class="form-control" name="id" readonly [(ngModel)]="model.id" #id="ngModel">
+                         
+            </div>
+ 
+            <div class="col-md-6">
+                <label for="inputAzienda" class="form-label">Nome Azienda</label>
+                <input type="text" class="form-control" id="inputAzienda" name="nome_azienda" required [(ngModel)]="model.nome_azienda" #nome_azienda="ngModel">
+                <div [hidden]="nome_azienda.valid || nome_azienda.pristine" class="alert alert-danger">
+                    il Nome dell'Azienda è obbligatorio
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="selectSettore" class="form-label">Settore</label>
+                <select id="selectSettore" class="form-select" name="settore_azienda"
+                    [(ngModel)]="model.settore_azienda">
+                    <option [value]="undefined" selected disabled>Seleziona un settore</option>
+                    <option *ngFor="let s of settori_aziendali" [value]="s">{{s}}</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputNomeResponsabile" class="form-label">Nome Responsabile</label>
+                <input type="text" class="form-control" id="inputNomeResponsabile" name="nome_responsabile"
+                    required [(ngModel)]="model.nome_responsabile" #nome_responsabile="ngModel">
+                <div [hidden]="nome_responsabile.valid || nome_responsabile.pristine" class="alert alert-danger">
+                    il Nome del Resposabile è obbligatorio
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputCognomeResponsabile" class="form-label">Cognome Responsabile</label>
+                <input type="text" class="form-control" id="inputCognomeResponsabile"
+                    name="cognome_responsabile" required [(ngModel)]="model.cognome_responsabile"
+                    #cognome_responsabile="ngModel">
+                <div [hidden]="cognome_responsabile.valid || cognome_responsabile.pristine" class="alert alert-danger">
+                    il Cognome del Resposabile è obbligatorio
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmailResponsabile" class="form-label">E-mail</label>
+                <input type="text" class="form-control" id="inputEmailResponsabile" name="email" required
+                    [(ngModel)]="model.email" #email="ngModel">
+                <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                    l'E-Mail del Resposabile è obbligatoria
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputTelResponsabile" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="inputTelResponsabile" name="tel" required
+                    [(ngModel)]="model.tel" #tel="ngModel">
+                <div [hidden]="tel.valid || tel.pristine" class="alert alert-danger">
+                    il Telefono del Resposabile è obbligatorio
+                </div>
+            </div>
+
+            <div class="col-12 my-5">
+                <label for="textRichiestaInfo" class="form-label">Richiesta</label>
+                <textarea class="form-control" id="textRichiestaInfo" rows="5" name="richiesta" required
+                    [(ngModel)]="model.richiesta" #richiesta="ngModel"></textarea>
+                <div [hidden]="richiesta.valid || richiesta.pristine" class="alert alert-danger">
+                    Inserisci una Richiesta
+                </div>
+            </div>
+    
+            <div class="col-12">
+                <button class="btn btn-warning float-end mx-2" (click)="cancel()">Annulla</button> 
+
+                <button type="submit" class="btn btn-info text-white float-end" [disabled]="!formMedLav.form.valid">Modifica Richiesta</button>
+            </div>
+        </form>
+<!--         <button class="btn btn-danger" (click)="confirm(data.prenotazione.id)">Conferma</button>
+ -->    
+    </div>
 </div>

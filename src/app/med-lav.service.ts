@@ -23,4 +23,10 @@ export class MedLavService {
   deleteRichiestaMedLav( id : number ) {
     return this.http.delete<MedLavInfo>(this.apiUrl + id);
   }
+
+  putRichiestaMedLav( mdInfo : MedLavInfo ) {
+    console.log(mdInfo);
+    
+    return this.http.put<MedLavInfo>( this.apiUrl + mdInfo.id, mdInfo );
+  }
 }
